@@ -1,6 +1,6 @@
 {
   "name": "parse-dates",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Easy dates parser that leverages on the power of lodash & sugarjs to parse dates that other parsers would fail. The concept is simple, instead on Regex, tokenize string into 'reducing ngrams' & extract!",
   "main": "index.js",
   "scripts": {

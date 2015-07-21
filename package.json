@@ -17,7 +17,8 @@
     "string"
   ],
   "dependencies": {
-    "sugar": "^1.4.1",
-    "lodash": "^3.10.0"
+    "chrono-node": "^1.0.6",
+    "lodash": "^3.10.0",
+    "sugar": "^1.4.1"
   }
 }

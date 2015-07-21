@@ -1,6 +1,7 @@
 require('sugar')
-var chrono = require ( 'chrono-node' )
-var ngrams = require ( 'n-gramify' )
+// var ngrams = require ( 'n-gramify' )
+var _ = require('lodash');
+var chrono= require('chrono-node');
 
 module.exports=function(str){
 	str=str || "there will be a meeting next friday. Are you coming? How about next week?"
@@ -8,39 +9,29 @@ module.exports=function(str){
 	//remove extra spaces
 	str=str.replace(/\s{2,}/g,' ');
 
-	console.log(str);
-
-	var loops=0
-
-	//loop thru tokens of 6 all the way to 1
-	for(var i=6; i>0; i--){
-		var chunk='',
-			d='';
-		
-		//create ngrams & loop thru them trying to parse outr dates
-		ngrams(str,i).forEach(function(ngs,i){
-			
-			chunk=ngs.join(' ');
-			d=Date.create(chunk)
-			date=( d.isValid())? d.iso() : '';
-
-			if(date){
-				//if date, then replace string
-				str=str.replace(chunk,'{DATE:'+date+'}')
-			}
-			
-
-			// console.log(chunk,date)
-
-		})
-
+	var dates={
+		dates:[],
+		string:{
+			in:_.clone(str),
+			out:_.clone(str),
+			annotated:_.clone(str)
+		}
 	}
 
-	console.log(str)
+	//parse & construct object
+	chrono.parse(str).forEach(function(d){
+		date=Date.create(d.ref).iso();
+		dates.dates.push(date);
+		// console.log(chunk+">>"+date)	
+		//if date, then replace string
+		dates.string.annotated=dates.string.annotated.replace(d.text,'{DATE: '+date+'}');
+		dates.string.out=dates.string.out.replace(d.text,date);
 
-	// var c=chrono.parseDate(str)
+	});
 
+	
 
-	// console.log(Date.create('June 1st, 2012'))
+	return dates;
+
 }
 

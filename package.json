@@ -17,7 +17,7 @@
     "string"
   ],
   "dependencies": {
-    "n-gramify": "^1.0.0",
-    "sugar": "^1.4.1"
+    "sugar": "^1.4.1",
+    "lodash": "^3.10.0"
   }
 }

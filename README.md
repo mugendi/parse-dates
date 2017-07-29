@@ -21,17 +21,17 @@ console.log(JSON.stringify(parsed,0,4));
 
 Output:
 
-```
+```json
 
 {
     "dates": [
         "1994-01-05T00:00:00.000Z"
     ],
     "string": {
-        "in": " Peter was born in 5th january 1994 will be 44 years old next week. ",
-        "out": " Peter was born in 1994-01-05T00:00:00.000Z will be 44 years old next week. ",
-        "annotated": " Peter was born in {DATE: 1994-01-05T00:00:00.000Z} will be 44 years old next week. "
+        "in": " Peter was born in 5th january 1994 and will be 44 years old next week. ",
+        "out": " Peter was born in 1994-01-05T00:00:00.000Z and will be 44 years old next week. ",
+        "annotated": " Peter was born in {DATE: 1994-01-05T00:00:00.000Z} and will be 44 years old next week. "
     }
-}                                                    
+}                                                
 
   ```

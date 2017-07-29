@@ -1,5 +1,5 @@
 
-#Extract Dates from text
+# Extract dates from text
 
 Easy dates parser that leverages on the power of [n-gramify](https://www.npmjs.com/package/n-gramify), [datejs](http://www.datejs.com) & [dehumanize-date](https://www.npmjs.com/package/dehumanize-date) to parse dates that other parsers would fail. 
 

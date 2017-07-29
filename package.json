@@ -1,6 +1,6 @@
 {
   "name": "parse-dates",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Easy dates parser that leverages on the power of n-gramify & http://www.datejs.com to parse dates that other parsers would fail. The concept is simple, instead on Regex, tokenize string into 'reducing ngrams' & extract!",
   "main": "index.js",
   "scripts": {

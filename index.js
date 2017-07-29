@@ -1,13 +1,15 @@
 
-var ngrams = require ( 'n-gramify' )
+const ngrams = require ( 'n-gramify' )
 //this library changes the Dates object. And that's all we need here...
-require('./lib/date.js')
+require('./lib/date.js');
+const dehumanize_date = require('dehumanize-date');
 
 module.exports=function(string){
 	string=string || "there will be a meeting next friday. Are you coming? How about next week?"
 
 	var chunk='';
-	var date=null;
+	var date=null,
+		reducted_date = null;
 
 	//create dates object
 	var dates={
@@ -24,12 +26,35 @@ module.exports=function(string){
 
 		//loop thru ngrams
 		ngrams(string,i).forEach(function(grams){
+
+			// console.log(grams);
+
 			chunk=grams.join(' ');
 			date=Date.parse(chunk);
 
 			if(date){
-				//return as ISOString
-				date=new Date(date).toISOString();
+				//find parts of grams that we can safely omit
+				// var required_grams = grams.concat([]);
+
+				while(grams.length){
+
+					reducted_date = dehumanize_date(grams.join(' '));
+
+					if( reducted_date ){
+						chunk = grams.join(' ');
+						grams = [];
+					}
+					
+					grams.shift();
+					
+				}
+
+
+				// console.log(chunk)	;
+				// console.log(required_grams, grams);
+
+				// return as ISOString
+				date=new Date( reducted_date ).toISOString();
 				dates.dates.push(date);
 				// console.log(chunk+">>"+date)	
 				dates.string.annotated=dates.string.annotated.replace(chunk,'{DATE: '+date+'}');
@@ -45,4 +70,5 @@ module.exports=function(string){
 	return dates;
 
 }
+
 

@@ -17,6 +17,7 @@
     "string"
   ],
   "dependencies": {
+    "dehumanize-date": "^2.5.0",
     "n-gramify": "^1.0.0"
   }
 }

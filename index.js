@@ -20,7 +20,7 @@ module.exports = function (string) {
 	}
 
 	// var ngrams=[]
-	for (i = 6; i > 1; i--) {
+	for (var i = 6; i > 1; i--) {
 
 		//loop thru ngrams
 		ngrams(string, i).forEach(function (grams) {

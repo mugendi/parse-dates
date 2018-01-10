@@ -19,5 +19,17 @@
   "dependencies": {
     "dehumanize-date": "^2.5.0",
     "n-gramify": "^1.0.0"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mugendi/parse-dates.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mugendi/parse-dates/issues"
+  },
+  "homepage": "https://github.com/mugendi/parse-dates#readme"
 }
